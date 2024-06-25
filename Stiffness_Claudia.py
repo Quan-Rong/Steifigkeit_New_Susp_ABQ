@@ -118,6 +118,7 @@ def main():
                                np.sqrt((N87_X0 - N89_X0)**2 + (N87_Y0 - N89_Y0)**2)) * 180 / np.pi
         
         kraft = st.number_input('Enter the force (N)', min_value=0.0, value=1000.0, step=1.0)
+        moment = st.number_input('Enter the Moment for AT (Nm)', min_value=0.0, value=100.0, step=1.0)
 
         results = {
             'Variable': ['Seitenkkraft_ToeChange', 'Seitenkkraft_CamberChange', 'Seitenkkraft_@WC@Compliance',
@@ -130,8 +131,8 @@ def main():
                 (Brake_Vorspur - Orig_Vorspur) / kraft,
                 (Brake_Sturz - Orig_Sturz) / kraft,
                 g / kraft,
-                (AT_Vorspur - Orig_Vorspur) / kraft,
-                (AT_Sturz - Orig_Sturz) / kraft
+                (AT_Vorspur - Orig_Vorspur) / moment,
+                (AT_Sturz - Orig_Sturz) / moment
             ]
         }
 
